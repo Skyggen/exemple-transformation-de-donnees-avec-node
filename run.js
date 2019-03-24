@@ -1,10 +1,10 @@
 // les librairies externes
 
-// pour téléchrager des fichiers en ligne:
+// pour télécharger des fichiers en ligne:
 const fetch = require('node-fetch')
 // pour la fonction csvParse qui transforme le csv en json:
 const d3 = require('d3')
-// pour transformer les données en json:
+// pour transformer les données:
 const R = require('ramda')
 // pour la fonction writeFile qui crée un fichier:
 const fs = require('fs')
@@ -14,7 +14,6 @@ const fs = require('fs')
 const URL = 'https://raw.githubusercontent.com/walkerkq/musiclyrics/master/billboard_lyrics_1964-2015.csv'
 
 // les fonctions que nous allons utiliser
-
 
 // trouver les noms d'artistes
 const getArtists = songs => {
@@ -44,7 +43,7 @@ const getSongsByArtist = (songs, artist) => {
 
 // la fonction que nous allons appliquer à la liste de chansons
 const formatData = songs => {
-  // utilisons la fonction créée plus haut pour avoir la liste d'artistes
+  // utilisons la fonction créée plus haut pour avoir la liste des artistes
   const artists = getArtists(songs)
   // pour chaque artiste, récupérons toutes ses chansons avec "getSongsByArtist"
   return artists
@@ -76,7 +75,7 @@ const saveJSON = data => {
     err => err ? console.log(err) : console.log('Saved dixPremiersArtistes.json')
     // cette fonction est appelée quand le fichier a été sauvé
     // ou si une erreur est survenue
-    // elle prends un argument "err" qui est l'erreur s'il y en a une ou "null"
+    // elle prends un argument "err" qui est l'erreur s'il y en a une
     // si "err" existe, nous écrivons l'erreur dans la console
     // sinon nous disons que le fichier a été sauvé
   )
